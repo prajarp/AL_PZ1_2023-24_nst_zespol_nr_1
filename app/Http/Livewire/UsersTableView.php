@@ -31,7 +31,7 @@ class UsersTableView extends TableView
      */
     public function headers(): array
     {
-        return ['ID', 'Nazwa', "Email", 'Haslo', 'Adres', 'Rola'];
+        return ['ID', 'NAZWA', "EMAIL", 'HASŁO', 'ADRES', 'ROLA'];
     }
 
     /**

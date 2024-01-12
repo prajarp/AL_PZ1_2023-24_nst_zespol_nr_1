@@ -22,7 +22,7 @@ class HistoryTableView extends TableView
     {
         $user = Users::where('email', session()->get('user'))->first();
         
-        $cartID = $user->cart()->where('STATUS', 'Zrealizowane')->orderByDesc('updated_at')->get('id')->toArray();
+        // $cartID = $user->cart()->where('STATUS', 'Zrealizowane')->orderByDesc('updated_at')->get('id')->toArray();
 
         // return CartElements::whereIn('cart_id', $cartID);
         return Cart::where('user_id', $user->id)->where('STATUS', 'Zrealizowane')->orderByDesc('updated_at');
@@ -51,11 +51,6 @@ class HistoryTableView extends TableView
 
         foreach ($model->cartElements as $cartElement) {
             if($cartElement->books->get()) {
-                // dd($model->cartElements);
-                // foreach ($model->cartElements->with('books') as $book) {
-                //     dd($book->get()->toArray());
-                //     $bookNames[] = '<b>'.$book->author . ' </b> ' . $book->title;
-                // }
                 $book = Books::find($cartElement->book_id);
                 $sum += $book->price * $cartElement->quantity;
                 $bookNames[] = '<b>'.$book->author . ' </b> ' . $book->title;
@@ -64,9 +59,8 @@ class HistoryTableView extends TableView
 
         return [
             $model->id,
-            // $model->cart_elements->books->title,
             implode("<br>",$bookNames),
-            $sum,
+            $sum. " zł", 
             $model->updated_at->format("Y-m-d"),
             $model->STATUS
         ];

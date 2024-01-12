@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Informacje o ksiazce')
+@section('title', 'Informacje o książce')
 
 @section('content')
 
@@ -15,7 +15,7 @@
                         <p class="book-text">
                             <strong>Kategoria:</strong> {{ $category->name }}
                             <br>
-                            <strong>Cena:</strong> {{ $book->price }} zl
+                            <strong>Cena:</strong> {{ $book->price }} zł
                             <br>
                             <strong>Strony:</strong> {{ $book->pages }}
                             <br>

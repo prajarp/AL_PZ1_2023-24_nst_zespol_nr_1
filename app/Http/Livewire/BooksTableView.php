@@ -31,7 +31,7 @@ class BooksTableView extends TableView
      */
     public function headers(): array
     {
-        return ['ID', 'Tytul', 'Autor', 'Kategoria', 'ID kategorii', 'Ilosc stron', 'Cena', 'Ilosc sztuk', 'img_path'];
+        return ['ID', 'TYTUŁ', 'AUTOR', 'KATEGORIA', 'ID KATEGORII', 'ILOŚĆ STRON', 'CENA', 'SZTUK', 'img_path'];
     }
 
     /**

@@ -11,7 +11,7 @@
 
     <div class="container mt-5">
         <div class="card mx-auto" style="max-width: 400px;">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header bg-secondary text-white">
                 <h2 class="text-center">Logowanie</h2>
             </div>
 
@@ -38,17 +38,19 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Haslo:</label>
+                        <label for="password">Hasło:</label>
                         <input type="password" id="password" name="password" class="form-control" required>
                         @error('password')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-block">Zaloguj sie</button>
+                    <button type="submit" class="btn btn-secondary" style="display: block; margin: 0 auto; text-align: center;">Zaloguj się</button>
+
                 </form>
                 <hr>
-                <button type="submit" onclick="window.location='{{ route('registration')}}'" class="btn btn-primary btn-block">Rejestracja</button>
+                <a href="{{ route('registration')}}" ><button class = "btn btn-secondary" style="display: block; margin: 0 auto; text-align: center;">Rejestracja</button></a>
+                
             </div>
         </div>
     </div>

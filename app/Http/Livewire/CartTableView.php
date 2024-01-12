@@ -36,7 +36,7 @@ class CartTableView extends TableView
     public function headers(): array
     {
         // return ['Produkt', 'Cena', 'Ilosc'];
-        return ['Autor' ,'Tytul', 'Cena', 'Ilosc', 'Suma zamowienia'];
+        return ['AUTOR' ,'TYTUŁ', 'CENA', 'ILOŚĆ', 'SUMA ZAMÓWIENIA'];
     }
 
     /**
@@ -50,7 +50,7 @@ class CartTableView extends TableView
         if($book->quantity > $data ) {
             $book->update($data);
         } else {
-            $this->error('Za maly stan magazynowy.');
+            $this->error('Za mały stan magazynowy.');
         }
     }
 
@@ -60,10 +60,10 @@ class CartTableView extends TableView
         return [
             $model->books->title,
             $model->books->author,
-            $model->books->price . ' zl',
+            $model->books->price . ' zł',
             // $model->quantity
             UI::editable($model, 'quantity'),
-            ($model->books->price) * ($model->quantity) . ' zl',
+            ($model->books->price) * ($model->quantity) . ' zł',
         ];
     }
 

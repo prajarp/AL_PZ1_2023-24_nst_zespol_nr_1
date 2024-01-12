@@ -13,10 +13,10 @@ class Registration extends Controller
         $countEmails = Users::where('email', $request->email)->count();
         
         if ($countEmails > 0) {
-            return redirect()->route('registration')->with('error', 'Email jest juz zajety.');
+            return redirect()->route('registration')->with('error', 'Email jest juz zajęty.');
         }
         if ($request->password !== $request->password_confirmation) {
-            return redirect()->route('registration')->with('error', 'Hasla nie sa identyczne.');
+            return redirect()->route('registration')->with('error', 'Podane hasła nie sa identyczne.');
         } 
         
         Users::create([
@@ -26,7 +26,7 @@ class Registration extends Controller
             'adress' => $request->adress,
             'role' => 'USER',
         ]);
-        return redirect()->route('registration')->with('success', 'Uzytkownik zostal zarejestrowany. ');
+        return redirect()->route('registration')->with('success', 'Użytkownik został zarejestrowany. ');
     }
 
 }

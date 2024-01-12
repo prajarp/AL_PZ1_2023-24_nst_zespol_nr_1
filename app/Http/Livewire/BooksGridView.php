@@ -32,7 +32,7 @@ class BooksGridView extends GridView
             'image' => asset('png/books/' .$model->img_path),
             'title' => $model->title,
             'category' => $model->category->name,
-            'price' => $model->price . ' zl',
+            'price' => $model->price . ' zł',
             'rating' => 'Ocena: ' . (round($model->rating()->avg('rating'), 1) ?? 0).' / 5',
         ];
     }

@@ -11,8 +11,8 @@
 
     <div class="container mt-5">
         <div class="card mx-auto" style="max-width: 400px;">
-            <div class="card-header bg-primary text-white">
-                <h2 class="text-center">Rejestracja</h2>
+            <div class="card-header bg-secondary text-white">
+                <h2 class="text-center bg-secondary text-white">Rejestracja</h2>
             </div>
 
             <div class="card-body">
@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Haslo:</label>
+                        <label for="password">Hasło:</label>
                         <input type="password" id="password" name="password" class="form-control" required>
                         @error('password')
                             <small class="text-danger">{{ $message }}</small>
@@ -70,7 +70,8 @@
                         <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-block">Zarejestruj sie</button>
+                    <button type="submit" class="btn  bg-secondary text-white btn-block">Zarejestruj się</button>
+                    
                 </form>
             </div>
         </div>

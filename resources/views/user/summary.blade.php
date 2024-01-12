@@ -10,12 +10,12 @@
     <table class="table table-bordered">
         <thead class="thead-dark">
             <tr>
-                <th>Tytul</th>
-                <th>Autor</th>
-                <th>Kategoria</th>
-                <th>Strony</th>
-                <th>Cena</th>
-                <th>Ilosc</th>
+                <th>TYTUŁ</th>
+                <th>AUTOR</th>
+                <th>KATEGORIA</th>
+                <th>STRONY</th>
+                <th>CENA</th>
+                <th>ILOŚĆ</th>
             </tr>
         </thead>
         <tbody>
@@ -35,8 +35,8 @@
     <table class="table table-bordered">
         <tbody>
             <tr>
-                <td>Suma zamowienia</td>
-                <td><strong>{{ $suma }}</strong> zl</td>
+                <td>Suma zamówienia</td>
+                <td><strong>{{ $sum }}</strong> zł</td>
             </tr>
         </tbody>
     </table>
@@ -45,13 +45,13 @@
         <tbody>
             <tr>
                 <td>Adres dostawy</td>
-                <td>{{ $adress }}</td>
+                <td><strong>{{ $adress }}</strong></td>
             </tr>
         </tbody>
     </table>
 </div>
 <form method="POST" action = '{{ route('summaryPost') }}'>
     @csrf
-    <button class = "btn btn-secondary">Zloz zamowienie</button>
+    <button class = "btn btn-secondary">Potwierdz</button>
 </form>
 @endsection

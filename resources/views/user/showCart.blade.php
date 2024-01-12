@@ -5,7 +5,7 @@
 @section('content')
     <div style = "background-color:white">
         @livewire('cart-table-view')
-        <button onclick="window.location='{{ route('summary')}}'" class = "btn btn-secondary">Zloz zamowienie</button>
+        <a href ="{{ route('summary')}}" ><button class = "btn btn-secondary">Złóż zamowienie</button></a>
     </div>
 
 @endsection

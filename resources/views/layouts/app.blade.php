@@ -11,14 +11,13 @@
 <body style = "background-color:#ededed">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
-            {{-- <img src="{{ asset('png/logo.png') }}" alt="Logo" height="30"> --}}
-            Miejsce na logo
-        </a>
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <!-- Add your dropdown menus here -->
+                <li class="nav-item">
+                    <a class = "nav-link" href=" {{ route('welcome') }}">Strona Główna</a>
+                </li>
                 <li class="nav-item">
                     <a class = "nav-link" href=" {{ route('books') }}">Ksiazki</a>
                 </li>

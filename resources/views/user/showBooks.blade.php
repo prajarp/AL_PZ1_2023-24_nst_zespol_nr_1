@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Wypozyczone ksiazki')
+@section('title', 'Wypożyczone książki')
 
 @section('content')
     <div style = "background-color:white">

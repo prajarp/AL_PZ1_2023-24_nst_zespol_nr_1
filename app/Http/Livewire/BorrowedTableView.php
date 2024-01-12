@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Actions\BorrowAction;
 use App\Models\BorrowedBooks;
+use App\Models\Users;
 use Illuminate\Database\Eloquent\Builder;
 use LaravelViews\Views\TableView;
 
@@ -16,7 +17,12 @@ class BorrowedTableView extends TableView
      */
     public function repository(): Builder
     {
-        return BorrowedBooks::query();
+        $user = Users::where('email', session()->get('user'))->first();
+
+        
+        // $borrowedBooks = $user->borrowedBooks()->where('user_id', 'id');
+
+        return BorrowedBooks::where('user_id', $user->id);
     }
 
     /**
@@ -26,7 +32,7 @@ class BorrowedTableView extends TableView
      */
     public function headers(): array
     {
-        return ['Tytul', 'Autor', 'Data wypozyczenia', 'Data oddania'];
+        return ['TYTUŁ', 'AUTOR', 'DATA WYPOŻYCZENIA', 'DATA ODDANIA'];
     }
 
     /**
@@ -36,9 +42,6 @@ class BorrowedTableView extends TableView
      */
     public function row(BorrowedBooks $model): array
     {
-        
-        
-        // dd($model->books);
         return [
             $model->books->title,
             $model->books->author,

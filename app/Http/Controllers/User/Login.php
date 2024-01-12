@@ -13,11 +13,11 @@ class Login extends Controller
         $user = Users::where('email', $request->email)->get()->first();
 
         if (!isset($user) || $user->count() == 0) {
-            return redirect()->route('login')->with('error', 'Uzytkownik nie istnieje');
+            return redirect()->route('login')->with('error', 'Użytkownik nie istnieje');
         }
         
         if ($user->password !== $request->password) {
-            return redirect()->route('login')->with('error', 'Nieprawidlowe haslo');
+            return redirect()->route('login')->with('error', 'Nieprawidlowe hasło');
         }
 
         session()->put('user', $request->email);

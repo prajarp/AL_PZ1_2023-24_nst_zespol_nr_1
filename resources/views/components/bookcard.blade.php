@@ -54,7 +54,7 @@
       </p>
     @endif
 
-    <a href="{{ route('bookId', ['id' => $model->id]) }}" class="btn btn-primary">Szczegoly</a>
+    <a href="{{ route('bookId', ['id' => $model->id]) }}" class="btn btn-secondary">Szczegóły</a>
   </div>
 
 </div>
