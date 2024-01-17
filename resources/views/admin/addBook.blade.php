@@ -46,7 +46,7 @@
             </div>
 
 
-            <button type="submit" class="btn btn-primary btn-block">Dodaj ksiazke</button>
+            <button type="submit" class="btn btn-secondary btn-block">Dodaj książkę</button>
         </form>
     </div>
 

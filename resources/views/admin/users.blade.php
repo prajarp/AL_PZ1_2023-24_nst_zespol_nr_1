@@ -4,7 +4,7 @@
 
 @section('content')
     <div style = "background-color:white">
-        <a href="{{ route('addBook')}}'"> <button class = "btn btn-secondary">Dodaj ksiazke</button></a>
+        <a href="{{ route('addBook')}}'"> <button class = "btn btn-secondary">Dodaj książkę</button></a>
         @livewire('users-table-view')
     </div>
 

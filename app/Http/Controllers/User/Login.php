@@ -5,11 +5,17 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class Login extends Controller
 {
     public function login(Request $request)
     {
+        $bookId = session()->get('id');
+        
+        
+        
         $user = Users::where('email', $request->email)->get()->first();
 
         if (!isset($user) || $user->count() == 0) {
@@ -23,6 +29,9 @@ class Login extends Controller
         session()->put('user', $request->email);
         session()->put('userRole', $user->role);
 
-        return redirect()->route('welcome');
+        if ($bookId !== null) {
+            Redirect::setIntendedUrl(route('bookId', ['id' => $bookId]));
+        }
+        return redirect()->intended();
     }
 }

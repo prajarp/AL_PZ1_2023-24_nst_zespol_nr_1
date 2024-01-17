@@ -41,6 +41,6 @@ class Admin extends Controller
             'quantity' => $request->quantity,
             'img_path' => $imgPath,
         ]);
-        return redirect()->route('maintainBooks')->with('success', 'Ksiazka zostala dodana.');
+        return redirect()->route('maintainBooks')->with('success', 'Książka została dodana.');
     }
 }

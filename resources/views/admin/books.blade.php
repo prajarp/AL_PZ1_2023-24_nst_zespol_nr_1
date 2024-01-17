@@ -4,7 +4,7 @@
 
 @section('content')
     <div style = "background-color:white">
-        <button onclick="window.location='{{ route('addBook')}}'" class = "btn btn-secondary">Dodaj ksiazke</button>
+        <button onclick="window.location='{{ route('addBook')}}'" class = "btn btn-secondary">Dodaj książkę</button>
         @livewire('books-table-view')
     </div>
 

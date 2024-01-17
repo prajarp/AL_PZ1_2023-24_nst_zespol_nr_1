@@ -42,6 +42,7 @@ Route::post('/login', [Login::class, 'login'])->name('loginPost');
 Route::get('/logout', function () {
     session()->forget('user');
     session()->forget('userRole');
+    session()->forget('id');
     return redirect()->route('welcome');
 })->name('logout');
 

@@ -20,10 +20,11 @@ class Books extends Controller
 
     public function show(string $id)
     {
+        session()->put('id', $id);
+
         $book = ModelsBooks::find($id);
 
         $category = $book->category;
-
 
         return view(
             'book',

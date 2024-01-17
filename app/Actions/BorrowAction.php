@@ -11,7 +11,7 @@ class BorrowAction extends Action
      * Any title you want to be displayed
      * @var String
      * */
-    public $title = "Oddaj ksiazke";
+    public $title = "Oddaj książkę";
 
     /**
      * This should be a valid Feather icon string
@@ -28,6 +28,6 @@ class BorrowAction extends Action
     public function handle($model, View $view)
     {
         $model->delete();
-        $this->success('Ksiazka zostala zwrocona.');
+        $this->success('Książka została zwrócona.');
     }
 }

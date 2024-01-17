@@ -19,14 +19,14 @@
                     <a class = "nav-link" href=" {{ route('welcome') }}">Strona Główna</a>
                 </li>
                 <li class="nav-item">
-                    <a class = "nav-link" href=" {{ route('books') }}">Ksiazki</a>
+                    <a class = "nav-link" href=" {{ route('books') }}">Książki</a>
                 </li>
             </ul>
 
             <div class="navbar-nav">
                 <!-- Place for username or login/logout links -->
                 @if(!session()->exists('user'))
-                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    <a class="nav-link" href="{{ route('login') }}">Zaloguj się</a>
                 @else
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="menu2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -34,16 +34,16 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="menu2">
                         @if(strtolower(session()->get('userRole'))=='admin')
-                        <a class="dropdown-item btn btn-secondary" onclick="window.location='{{route('maintainBooks')}}'">Zarzadzaj Ksiazkami</a>
-                        <a class="dropdown-item btn btn-secondary" onclick="window.location='{{route('maintainUsers')}}'">Zarzadzaj Uzytkownikami</a>
+                        <a class="dropdown-item btn btn-secondary" onclick="window.location='{{route('maintainBooks')}}'">Zarządzaj Książkami</a>
+                        <a class="dropdown-item btn btn-secondary" onclick="window.location='{{route('maintainUsers')}}'">Zarządzaj Użytkownikami</a>
                         @else
                         <a class="dropdown-item btn btn-secondary" onclick="window.location='{{route('showCart')}}'">Koszyk</a>
-                        <a class="dropdown-item btn btn-secondary" onclick="window.location='{{route('showBooks')}}'">Wypozyczone Ksiazki</a>
-                        <a class="dropdown-item btn btn-secondary" onclick="window.location='{{route('history')}}'">Historia Zamowien</a>
+                        <a class="dropdown-item btn btn-secondary" onclick="window.location='{{route('showBooks')}}'">Wypożyczone Książki</a>
+                        <a class="dropdown-item btn btn-secondary" onclick="window.location='{{route('history')}}'">Historia Zamówień</a>
                         @endif
                     </div>
                 </li>
-                    <span class="navbar-text mr-3 btn btn-secondary" onclick="window.location='{{route('logout')}}'">Wyloguj sie</span>
+                    <span class="navbar-text mr-3 btn btn-secondary" onclick="window.location='{{route('logout')}}'">Wyloguj się</span>
                 @endif
             </div>
         </div>

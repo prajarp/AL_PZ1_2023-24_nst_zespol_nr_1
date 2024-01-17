@@ -12,14 +12,14 @@ class DeleteBook extends Action
 
     public function getConfirmationMessage($item = null)
     {
-        return 'Ksiazka zostanie permametnie usunieta. Czy na pewno chcesz to zrobic?';
+        return 'Książka zostanie permanentnie usunięta. Czy na pewno chcesz to zrobić?';
     }
     
     /**
      * Any title you want to be displayed
      * @var String
      * */
-    public $title = "Usun ksiazke";
+    public $title = "Usuń książkę";
 
     /**
      * This should be a valid Feather icon string
@@ -36,6 +36,6 @@ class DeleteBook extends Action
     public function handle($model, View $view)
     {
         $model->delete();
-        $this->success('Ksiazka zostala usunieta.');
+        $this->success('Książka została usunięta.');
     }
 }

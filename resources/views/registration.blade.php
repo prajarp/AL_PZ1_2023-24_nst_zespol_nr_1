@@ -20,8 +20,7 @@
                     <div class="alert alert-success">
                         {{ session()->get('success') }}
                         <br>
-                        <a href="{{route('login')}}">Zaloguj sie</a>
-                    
+                        <a href="{{route('login')}}">Zaloguj się</a>
                     </div>
                 @endif
                 @if(session()->has('error'))

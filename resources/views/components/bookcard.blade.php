@@ -7,11 +7,13 @@
   'model',
   'actions' => [],
   'hasDefaultAction' => false,
-  'selected' => false
+  'selected' => false,
 ])
 
+
+
 <div class="{{ $withBackground ? 'rounded-md shadow-md' : '' }}" style = "max-width: 500px; margin-top:15px">
-        @if ($hasDefaultAction)
+  @if ($hasDefaultAction)
             <a href="#!" wire:click.prevent="onCardClick({{ $model->id }})">
             <img src="{{ $image }}" alt="{{ $image }}" class="hover:shadow-lg cursor-pointer rounded-md h-48 w-full object-cover {{ $withBackground ? 'rounded-b-none' : '' }} {{ $selected ? variants('gridView.selected') : "" }}">
             </a>
@@ -29,6 +31,14 @@
           @else
             {!! Str::limit($title, 25) !!}
           @endif
+
+          @if (isset($author))
+          <p class="line-clamp-3 mt-2">
+            {!! $author !!}
+          </p>
+          @endif
+          
+        <hr>
           @if ($category)
           <span class="line-clamp-3 mt-2">
             {!! $category !!}
@@ -40,7 +50,6 @@
           </span>
         @endif
       </div>
-
       @if (count($actions))
         <div class="flex justify-end items-center">
           <x-lv-actions.drop-down :actions="$actions" :model="$model" />
@@ -53,6 +62,7 @@
         {!! $rating !!}
       </p>
     @endif
+    <br>
 
     <a href="{{ route('bookId', ['id' => $model->id]) }}" class="btn btn-secondary">Szczegóły</a>
   </div>

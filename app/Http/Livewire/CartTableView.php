@@ -24,7 +24,18 @@ class CartTableView extends TableView
      */
     public function repository(): Builder
     {
-        return CartElements::leftJoin('cart', 'cart.id', '=', 'cart_elements.cart_id')
+        return CartElements::join('cart', 'cart.id', '=', 'cart_elements.cart_id')
+        ->join('books', 'books.id', '=', 'cart_elements.book_id')
+        ->select([
+            'cart_elements.id',
+            'cart_elements.cart_id',
+            'cart_elements.book_id',
+            'cart_elements.quantity',
+            'cart_elements.created_at',
+            'cart_elements.updated_at',
+            'cart.user_id',
+            'cart.STATUS',
+        ])
         ->where('cart.STATUS', 'W trakcie');
     }
 
@@ -35,7 +46,6 @@ class CartTableView extends TableView
      */
     public function headers(): array
     {
-        // return ['Produkt', 'Cena', 'Ilosc'];
         return ['AUTOR' ,'TYTUŁ', 'CENA', 'ILOŚĆ', 'SUMA ZAMÓWIENIA'];
     }
 
@@ -45,15 +55,19 @@ class CartTableView extends TableView
      * @param $model Current model for each row
      */
 
-    public function update(CartElements $book, $data)
-    {
-        if($book->quantity > $data ) {
-            $book->update($data);
-        } else {
-            $this->error('Za mały stan magazynowy.');
-        }
+    public function update(CartElements $cartElement, $data)
+{
+    $newQuantity = (int)$data['quantity'];
+
+    $availableQuantity = $cartElement->books->quantity;
+
+    if ($newQuantity > $availableQuantity) {
+        $this->error('Za mały stan magazynowy.');
+        return;
     }
 
+    $cartElement->update(['quantity' => $newQuantity]);
+}
 
     public function row($model): array
     {
@@ -61,7 +75,6 @@ class CartTableView extends TableView
             $model->books->title,
             $model->books->author,
             $model->books->price . ' zł',
-            // $model->quantity
             UI::editable($model, 'quantity'),
             ($model->books->price) * ($model->quantity) . ' zł',
         ];

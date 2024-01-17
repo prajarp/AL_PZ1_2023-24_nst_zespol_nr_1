@@ -26,11 +26,12 @@ class User extends Controller
     {
         $user = Users::where('email', session()->get('user'))->first();
         $bookId = $request->id;
+
         $existingRent = BorrowedBooks::where('user_id', $user->id)
             ->where('book_id', $bookId)
             ->first();
         if ($existingRent) {
-            return redirect()->route('bookId', $bookId)->with('error', 'Wypożyczyłes tę książkę.');
+            return redirect()->route('bookId', $bookId)->with('error', 'Już wypożyczyłes tę książkę.');
         }
 
         $book = Books::where('id', $bookId)->get()->first();
@@ -68,7 +69,7 @@ class User extends Controller
             'rating'  => $request->rating,
         ]);
 
-        return redirect()->route('bookId', $request->id)->with('success', 'Oceniłeś ksiazke.');
+        return redirect()->route('bookId', $request->id)->with('success', 'Oceniłeś książkę.');
     }
 
     public function addToCart(Request $request)
@@ -114,10 +115,8 @@ class User extends Controller
     {
         $user = Users::where('email', session()->get('user'))->first();
         $books = $this->getBooksInOpenCartForUser($user);
-
         
         $sum = 0;
-        #TODO zmien zmienna na anglojezyczna
         foreach ($books as $book) {
 
             $sum += $book->quantity * $book->books->price;

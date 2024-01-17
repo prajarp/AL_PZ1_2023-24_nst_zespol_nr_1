@@ -10,13 +10,13 @@ class CartAction extends Action
 
     public function getConfirmationMessage($item = null)
     {
-        return 'Na pewno chcesz usunac produkt z koszyka?';
+        return 'Na pewno chcesz usunąć produkt z koszyka?';
     }
     /**
      * Any title you want to be displayed
      * @var String
      * */
-    public $title = "Usun ksiazke";
+    public $title = "Usuń książkę";
 
     /**
      * This should be a valid Feather icon string
@@ -32,7 +32,9 @@ class CartAction extends Action
      */
     public function handle($model, View $view)
     {
+        
         $model->delete();
-        $this->success('Usunieto produkt z koszyka.');
+        
+        $this->success('Usunięto produkt z koszyka.');
     }
 }
